@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 设置全局参数 -->
+	<settings>
+		<!-- 打开延迟加载开关 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 将积极加载改为消极加载，即需要加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 开启二级缓存总开关 -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	
+	<!-- 设置pojo、集合类型的别名-->
+	<!-- 批量定义pojo类型的别名 ，以便parameterType和resultType使用-->
+	<typeAliases>
+		<typeAlias type="java.util.HashMap" alias="hashMap"/>
+		<package name="com.baoxina.po"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="sqlmapper/UserMapper.xml"/>
+		<!-- 和spring整合之后，使用mapper扫描器org.mybatis.spring.mapper.MapperScannerConfigurer，下面这行也不需要配置了 -->
+		<!-- <package name="com.baoxina.mapper"/> -->
+	</mappers>
+</configuration>
